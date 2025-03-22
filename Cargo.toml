@@ -1,0 +1,9 @@
+[package]
+name = "ray"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[build]
+target = "x86_64-unknown-linux-gnu" #
