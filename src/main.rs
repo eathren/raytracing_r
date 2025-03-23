@@ -1,5 +1,7 @@
 use std::fs::File;
 use std::io::{BufWriter, Write};
+mod vec3;
+use vec3::Vec3;
 
 fn main() {
     let nx: i32 = 200;
@@ -12,14 +14,10 @@ fn main() {
 
     for j in (0..ny).rev() {
         for i in 0..nx {
-            let r = i as f32 / nx as f32;
-            let g: f32 = j as f32 / ny as f32;
-            let b = 0.2;
-
-            let ir = (255.99 * r) as i32;
-            let ig = (255.99 * g) as i32;
-            let ib = (255.99 * b) as i32;
-
+            let vec3 = Vec3::new(i as f64 / nx as f64, j as f64 / ny as f64, 0.2);
+            let ir = (255.99 * vec3.x()) as i32;
+            let ig = (255.99 * vec3.y()) as i32;
+            let ib = (255.99 * vec3.z()) as i32;
             writeln!(writer, "{} {} {}", ir, ig, ib).unwrap();
         }
     }
